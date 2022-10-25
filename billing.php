@@ -53,9 +53,7 @@ include 'header.php';
               <div class="text">
                 <h2>Your Booking Summary</h2>
               </div>
-              <div class="text" id="feedback">
 
-              </div>
               <div class="input-text">
                 <div class="input-div">
                    <?php 
@@ -75,7 +73,10 @@ include 'header.php';
                     <h3>Payment Method</h3>
                     <select name="paymentmethod" id="paymentmethod">
                         <option value="creditcard">Mpesa</option>
-                    </select>   
+                    </select> 
+                    <div class="text" id="feedback">
+
+                    </div>  
                 </div>
               </div>
              
