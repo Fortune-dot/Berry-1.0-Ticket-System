@@ -48,12 +48,12 @@ class Mpesa
     }
 
     public static function stkSend(){
-        $args = func_get_args();
+        $args = func_get_arg();
 
         $Amount = 1;
         $AccountReference = 'deeznuts';
         $CallBackURL = 'https://berrytickets.herokuapp.com/callback_url.php';
-        $PhoneNumber = $PartyA = $data['phone'];
+        $PhoneNumber = $PartyA = $args[0];
 
         $passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
         $Timestamp = date('YmdHis');
