@@ -1,7 +1,11 @@
 <?php
 session_start();
 
-if(isset($_POST['submit'])){
+header('content-type: application/json');
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $data = file_get_contents("php://input");
+    $data = json_decode($data, true);
 
 
   date_default_timezone_set('Africa/Nairobi');
@@ -25,7 +29,7 @@ if(isset($_POST['submit'])){
     for developer/test accounts, this money will be reversed automatically by midnight.
   */
   
-   $PartyA = $_POST['phone']; // This is your phone number, 
+   $PartyA = $data['phone']; // This is your phone number, 
   $AccountReference = '2255';
   $TransactionDesc = 'Test Payment';
   $Amount = 1;
@@ -87,6 +91,8 @@ if(isset($_POST['submit'])){
   $curl_response = curl_exec($curl);
 
 
-  echo $curl_response;
+  echo json_encode($curl_response);
+}else{
+    echo json_encode("Only POST method is allowed");
 };
 ?>

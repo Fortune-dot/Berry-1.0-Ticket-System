@@ -256,6 +256,7 @@ include 'header.php';
             e.preventDefault()
 
             $("#pay").text('Please wait...').attr('disabled', true)
+            
             const form = $('#form').serializeArray()
             
             const _response = await fetch('./stk_initiate.php', {
