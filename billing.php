@@ -267,7 +267,8 @@ include 'header.php';
 
             const response = await _response.json()
             $("#pay").text('Pay').attr('disabled', false)
-
+            console.log(response);
+            
             if (response && response.ResponseCode == 0) {
                 $('#feedback').html(`<p class='alert alert-success'>${response.CustomerMessage}</p>`)
             } else {
