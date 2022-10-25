@@ -29,7 +29,7 @@ $data = json_decode($data, true);
     for developer/test accounts, this money will be reversed automatically by midnight.
   */
   
-   $PartyA = $data['value']; // This is your phone number, 
+   $PartyA = $data["name"]; // This is your phone number, 
   $AccountReference = '2255';
   $TransactionDesc = 'Test Payment';
   $Amount = 1;
@@ -89,8 +89,9 @@ $data = json_decode($data, true);
   curl_setopt($curl, CURLOPT_POST, true);
   curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
   $curl_response = curl_exec($curl);
+  $res = $curl_response.serializeArray();
 
 
-  echo json_encode($curl_response);
+  echo json_encode($res);
 
 ?>

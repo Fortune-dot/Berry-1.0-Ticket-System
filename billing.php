@@ -80,7 +80,7 @@ include 'header.php';
               <div class="input-text">
               <form action="stk_initiate.php" method="POST" id="form">
                 <div class="input-div">
-                  <input type="text" name="phone" value="<?php if(isset($_POST['pay'])){echo($_POST['phone']);};?>" required require />
+                  <input type="text" name="phone"  required require />
                   <span>Mpesa Number</span>
                 </div>
                 <div class="input-div" id="feedback">
@@ -268,7 +268,7 @@ include 'header.php';
             const response = await _response.json()
             $("#pay").text('Pay').attr('disabled', false)
             console.log(response);
-            
+
             if (response && response.ResponseCode == 0) {
                 $('#feedback').html(`<p class='alert alert-success'>${response.CustomerMessage}</p>`)
             } else {
