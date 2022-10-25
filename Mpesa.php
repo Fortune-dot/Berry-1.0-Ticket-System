@@ -1,7 +1,7 @@
 <?php
 header('content-type: application/json');
 
-//if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $data = file_get_contents("php://input");
     $data = json_decode($data, true);
 
@@ -14,11 +14,11 @@ header('content-type: application/json');
 
     // echo json_encode(Mpesa::$payload);
 
-//} else {
-//    echo json_encode(['code' => 0, 'method' => $_SERVER['REQUEST_METHOD']]);
-//}
+} else {
+    echo json_encode(['code' => 0, 'method' => $_SERVER['REQUEST_METHOD']]);
+}
 
-//return;
+return;
 
 
 class Mpesa
