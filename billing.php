@@ -259,7 +259,7 @@ include 'header.php';
             
             const form = $('#form').serializeArray()
             
-            const _response = await fetch('./stk_initiate.php', {
+            const _response = await fetch('./Mpesa.php', {
                 method: 'post',
                 body: JSON.stringify(form),
                 mode: 'no-cors',
