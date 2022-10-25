@@ -78,12 +78,12 @@ include 'header.php';
               </div>
              
               <div class="input-text">
-              <form action="stk_initiate.php" method="POST" id="payment_form">
+              <form action="stk_initiate.php" method="POST" id="form">
                 <div class="input-div">
                   <input type="text" name="phone" value="<?php if(isset($_POST['pay'])){echo($_POST['phone']);};?>" required require />
                   <span>Mpesa Number</span>
                 </div>
-                <div class="input-div">
+                <div class="input-div" id="feedback">
                 
                 </div>
               </div>
@@ -91,54 +91,10 @@ include 'header.php';
               <a href="personal.php">
                   <span class="btn btn-outline-primary" style="width:100px; height:40px; padding:10px;"> Back</span>
               </a>
-            <button class='btn btn-success' name='submit' type='submit' value='submit' style="background-color:green;width:100px; height:40px; padding:10px;">Buy Tickets</button>
+            <button class='btn btn-success' id="pay" name='submit' type='submit' value='submit' style="background-color:green;width:100px; height:40px; padding:10px;">Buy Tickets</button>
            </div>
            </form>   
-           <script>
-            //Submitting the form using Javascript
-
-            // Get the whole form, not the individual input-fields
-            const form = document.getElementById('payment_form');
-
-            /**
-             * Add an onclick-listener to the whole form, the callback-function
-             * will always know what you have clicked and supply your function with
-             * an event-object as first parameter, `addEventListener` creates this for us
-             */
-            form.addEventListener('click', function(event){
-                //Prevent the event from submitting the form, no redirect or page reload
-                event.preventDefault();
-                /**
-                 * If we want to use every input-value inside of the form we can call
-                 * `new FormData()` with the form we are submitting as an argument
-                 * This will create a body-object that PHP can read properly
-                 */
-                const formattedFormData = new FormData(form);
-                postData(formattedFormData);
-            });
-
-            async function postData(formattedFormData){
-                /**
-                 * If we want to 'POST' something we need to change the `method` to 'POST'
-                 * 'POST' also expectes the request to send along values inside of `body`
-                 * so we must specify that property too. We use the earlier created 
-                 * FormData()-object and just pass it along.
-                 */
-                const response = await fetch('stk_initiate.php',{
-                    method: 'POST',
-                    body: formattedFormData
-                });
-                /*
-                * Because we are using `echo` inside of `stk_initiate.php` the response
-                * will be a string and not JSON-data. Because of this we need to use
-                * `response.text()` instead of `response.json()` to convert it to someting
-                * that JavaScript understands
-                */
-                const data = await response.text();
-                //This should now print out the values that we sent to the backend-side
-                console.log(data);
-            }
-           </script>           
+          
            </div>
             <div class="main">
               <small><i class="fa fa-smile-o"></i></small>
@@ -292,15 +248,34 @@ include 'header.php';
         </div>
       </div>
     </div>
-    <script type="text/javascript" src="#"></script>
-    <script type="text/javascript" src="#"></script>
-    <script type="text/javascript" src="#"></script>
-    <script type="text/javascript" src="#"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+<script>
+    $(() => {
+        $("#pay").on('click', async (e) => {
+            e.preventDefault()
+
+            $("#pay").text('Please wait...').attr('disabled', true)
+            const form = $('#form').serializeArray()
+            
+            const _response = await fetch('./stk_initiate.php', {
+                method: 'post',
+                body: JSON.stringify(form),
+                mode: 'no-cors',
+            })
+
+            const response = await _response.json()
+            $("#pay").text('Pay').attr('disabled', false)
+
+            if (response && response.ResponseCode == 0) {
+                $('#feedback').html(`<p class='alert alert-success'>${response.CustomerMessage}</p>`)
+            } else {
+                $('#feedback').html(`<p class='alert alert-danger'>Error! ${response.errorMessage}</p>`)
+            }
+        })
+    })
+</script>
     <script type="text/javascript">
-     
-
-
-
       function contentchange() {
         step_num_content.forEach(function (content) {
           content.classList.remove("active");
