@@ -9,7 +9,7 @@ header('content-type: application/json');
 
     echo $data['phone'];
     echo Mpesa::$response;
-    echo Mpesa::$payload;
+    //echo Mpesa::$payload;
 
     // echo json_encode(Mpesa::$payload);
 
