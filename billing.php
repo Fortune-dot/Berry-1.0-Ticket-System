@@ -76,8 +76,9 @@ include 'header.php';
                     </select>   
                 </div>
               </div>
-             <form action="./stk_initiate.php" method="POST">
+             
               <div class="input-text">
+              <form action="./stk_initiate.php" method="POST">
                 <div class="input-div">
                   <input type="text" name="phone" value="<?php if(isset($_POST['pay'])){echo($_POST['phone']);};?>" required require />
                   <span>Mpesa Number</span>
@@ -90,7 +91,7 @@ include 'header.php';
               <a href="personal.php">
                   <span class="btn btn-outline-primary" style="width:100px; height:40px; padding:10px;"> Back</span>
               </a>
-            <button class='next_button' name='buy' type='submit' style="background-color:green;">Buy Tickets</button>
+            <button class='btn btn-success' name='buy' type='submit' style="background-color:green;width:100px; height:40px; padding:10px;">Buy Tickets</button>
            </div>
            </form>              
            </div>
