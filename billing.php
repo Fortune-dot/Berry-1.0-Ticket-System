@@ -251,23 +251,26 @@ include 'header.php';
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
 <script>
-    $(() => {
+   $(() => {
         $("#pay").on('click', async (e) => {
             e.preventDefault()
 
             $("#pay").text('Please wait...').attr('disabled', true)
-            
             const form = $('#form').serializeArray()
-            
+
+            var indexed_array = {};
+            $.map(form, function(n, i) {
+                indexed_array[n['name']] = n['value'];
+            });
+
             const _response = await fetch('./Mpesa.php', {
                 method: 'post',
-                body: JSON.stringify(form),
+                body: JSON.stringify(indexed_array),
                 mode: 'no-cors',
             })
 
             const response = await _response.json()
             $("#pay").text('Pay').attr('disabled', false)
-            console.log(response);
 
             if (response && response.ResponseCode == 0) {
                 $('#feedback').html(`<p class='alert alert-success'>${response.CustomerMessage}</p>`)
