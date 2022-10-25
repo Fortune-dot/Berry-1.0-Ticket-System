@@ -417,7 +417,7 @@ session_start();
             ?> 
               <div class="buttons button_space">
                 <a href="index.php">
-                <button class="back_button" >Back</button>
+                  <span class="btn btn-outline-primary" style="width:110px; height:40px; padding:10px;"> Back</span>
                 </a>
                 <button class="next_button" type="submit" name="submit" >Next Step</button>
               </div>
