@@ -301,7 +301,7 @@ include 'header.php';
         return validate;
       }
     </script>
-    <script src="./app.js"></script>
+
   <!--
     <script type="text/javascript">
       var myLink = document.querySelector('a[href="#"]');
