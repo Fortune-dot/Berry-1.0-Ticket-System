@@ -47,7 +47,7 @@ include 'header.php';
             </ul>
           </div>
           <div class="right-side">
-            <form action="index.php" method="post">
+            
             <div class="main active">
               
               <div class="text">
