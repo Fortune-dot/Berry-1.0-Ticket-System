@@ -3,9 +3,8 @@ session_start();
 
 header('content-type: application/json');
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $data = file_get_contents("php://input");
-    $data = json_decode($data, true);
+$data = file_get_contents("php://input");
+$data = json_decode($data, true);
 
 
   date_default_timezone_set('Africa/Nairobi');
@@ -92,7 +91,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
   echo json_encode($curl_response);
-}else{
-    echo json_encode("Only POST method is allowed");
-};
+
 ?>
