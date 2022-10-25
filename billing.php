@@ -279,12 +279,14 @@ include 'header.php';
       }
     </script>
     <script src="./app.js"></script>
+  <!--
     <script type="text/javascript">
       var myLink = document.querySelector('a[href="#"]');
       myLink.addEventListener("click", function (e) {
         e.preventDefault();
       });
     </script>
+    -->
   </body>
 </html>
     
