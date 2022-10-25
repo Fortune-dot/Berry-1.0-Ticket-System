@@ -75,6 +75,9 @@ include 'header.php';
                         <option value="creditcard">Mpesa</option>
                     </select>   
                 </div>
+                <div class="input-div" id="feedback" >
+
+                </div>
               </div>
              
               <div class="input-text">
@@ -83,7 +86,7 @@ include 'header.php';
                   <input type="text" name="phone"  required require />
                   <span>Mpesa Number</span>
                 </div>
-                <div class="input-div" id="feedback">
+                <div class="input-div" >
                 
                 </div>
               </div>
