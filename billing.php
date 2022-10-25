@@ -121,6 +121,7 @@ if(isset($_POST['submit'])){
                   <span class="btn btn-outline-primary" style="width:100px; height:40px; padding:10px;"> Back</span>
               </a>
             <button class='btn btn-success' id="pay" name='submit' type='submit' value='submit' style="background-color:green;width:100px; height:40px; padding:10px;">Buy Tickets</button>
+            <button class='btn btn-warning'  style="background-color:green;width:100px; height:40px; padding:10px;"> Print Ticket</button>
            </div>
            </form>   
           
