@@ -4,6 +4,7 @@ header('content-type: application/json');
 //if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $data = file_get_contents("php://input");
     $data = json_decode($data, true);
+    echo $data["phone"];
 
     Mpesa::stkSend($data);
 
