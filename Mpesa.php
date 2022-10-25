@@ -5,7 +5,7 @@ header('content-type: application/json');
     $data = file_get_contents("php://input");
     $data = json_decode($data, true);
 
-    Mpesa::stkSend($data['phone']);
+    Mpesa::stkSend($data);
 
  
     echo Mpesa::$response;
@@ -48,7 +48,7 @@ class Mpesa
     }
 
     public static function stkSend(){
-        $args = func_get_arg();
+        $args = func_get_args();
 
         $Amount = 1;
         $AccountReference = 'deeznuts';
