@@ -74,7 +74,7 @@ include 'header.php';
                     <select name="paymentmethod" id="paymentmethod">
                         <option value="creditcard">Mpesa</option>
                     </select> 
-                    <div class="text" id="feedback">
+                    <div class="input-div" id="feedback" >
 
                     </div>  
                 </div>
