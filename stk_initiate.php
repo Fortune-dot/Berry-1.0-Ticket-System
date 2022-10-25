@@ -6,7 +6,7 @@ header('content-type: application/json');
 $data = file_get_contents("php://input");
 $data = json_decode($data, true);
 
-echo data['phone'];
+
 
   date_default_timezone_set('Africa/Nairobi');
 
@@ -29,7 +29,7 @@ echo data['phone'];
     for developer/test accounts, this money will be reversed automatically by midnight.
   */
   
-   $PartyA = $data['phone']; // This is your phone number, 
+   $PartyA = $data['value']; // This is your phone number, 
   $AccountReference = '2255';
   $TransactionDesc = 'Test Payment';
   $Amount = 1;
