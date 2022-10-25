@@ -6,6 +6,7 @@ header('content-type: application/json');
 $data = file_get_contents("php://input");
 $data = json_decode($data, true);
 
+echo data['phone'];
 
   date_default_timezone_set('Africa/Nairobi');
 
